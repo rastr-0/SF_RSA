@@ -1,4 +1,5 @@
 import math
+import string
 from random import randint
 import timeit
 
@@ -144,8 +145,10 @@ class RSA:
 
     def generate_keys(self) -> tuple[int, int]:
         """Generate public and private RSA keys and return public, save private to the class variable"""
-        first_prime = Prime.generate_prime(self.key_size // 2)
-        second_prime = Prime.generate_prime(self.key_size // 2)
+
+        # self.key_size >> 1 = self.key_size // 2
+        first_prime = Prime.generate_prime(self.key_size >> 1)
+        second_prime = Prime.generate_prime(self.key_size >> 1)
         composite = first_prime * second_prime
         # public exponent (recommended public exponent value, 3 and 17 are also popular values)
         public_exponent = 65537
@@ -171,11 +174,23 @@ class RSA:
         return decrypted_bytes.decode("UTF-8")
 
 
-start = timeit.default_timer()
+def test(rsa_bits_size_key: int, times_to_run: int):
+    from random import choices
 
-rsa = RSA(2048)
-your_public_key = rsa.generate_keys()
-encrypted = rsa.encrypt("This is text for encryption", your_public_key)
-print(rsa.decrypt(encrypted))
+    print(f"\nTests with {rsa_bits_size_key} bits size\n")
+    for _ in range(times_to_run):
+        start = timeit.default_timer()
+        rsa = RSA(rsa_bits_size_key)
+        your_public_key = rsa.generate_keys()
+        # generate random 60 length string
+        random_text = ''.join(choices(string.ascii_lowercase, k=60))
+        encrypted_val = rsa.encrypt(random_text, your_public_key)
+        decrypted = rsa.decrypt(encrypted_val)
+        print(f"Test ({_}): {round(timeit.default_timer() - start, 4)}")
+        if random_text != decrypted:
+            print("Encrypted value is not the same")
 
-print(f"The time spent for generating prime: {timeit.default_timer() - start}")
+
+test(512, 10)
+test(1024, 10)
+test(2048, 10)
