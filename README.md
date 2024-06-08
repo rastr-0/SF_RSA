@@ -23,43 +23,43 @@ For generating prime numbers is used Miller-Rabin algorithm and checking for div
 2) Convert int to bytes and then to string
 ```
 ## Tests
-Tests were done on my laptop (Ryzen 5 5600H, 24Gb RAM) with different RSA keys sizes:
+Tests were done on my laptop (Ryzen 5 5600H, 24Gb RAM) with different RSA keys sizes and random 50 characters generated text:
 * 512 bits RSA keys
 ```
-Test (0): 0.05203962099949422
-Test (1): 0.04846767700109922
-Test (2): 0.0652224989989918
-Test (3): 0.05349613099861017
-Test (4): 0.054369544001019676
-Test (5): 0.05666580400065868
-Test (6): 0.05314915300004941
-Test (7): 0.05707518000053824
-Test (8): 0.056296883998584235
-Test (9): 0.05772694400002365
+Test (0): 0.0497
+Test (1): 0.0568
+Test (2): 0.0539
+Test (3): 0.0514
+Test (4): 0.0488
+Test (5): 0.052
+Test (6): 0.0666
+Test (7): 0.0493
+Test (8): 0.0431
+Test (9): 0.0449
 ```
 * 1024 bits RSA keys:
 ```
-Test (0): 0.46605865599849494
-Test (1): 0.4654594650000945
-Test (2): 0.45704866600135574
-Test (3): 0.47402370199961297
-Test (4): 0.48767767200115486
-Test (5): 0.49173967099886795
-Test (6): 0.49617687499994645
-Test (7): 0.4839278710005601
-Test (8): 0.46782631399946695
-Test (9): 0.502362852999795
+Test (0): 0.5015
+Test (1): 0.5473
+Test (2): 0.4703
+Test (3): 0.4644
+Test (4): 0.4739
+Test (5): 0.4763
+Test (6): 0.4934
+Test (7): 0.5064
+Test (8): 0.4752
+Test (9): 0.4845
 ```
 * 2048 bits RSA keys
 ```
-Test (0): 5.601344878001328
-Test (1): 5.271162814999116
-Test (2): 5.432002318000741
-Test (3): 5.471853471999566
-Test (4): 5.845398714000112
-Test (5): 5.5919270729991695
-Test (6): 5.4350055110007816
-Test (7): 5.908701343998473
-Test (8): 5.602632273999916
-Test (9): 5.470917590999306
+Test (0): 5.3541
+Test (1): 5.4394
+Test (2): 5.3898
+Test (3): 5.5832
+Test (4): 5.5234
+Test (5): 5.7171
+Test (6): 5.8348
+Test (7): 5.5278
+Test (8): 5.4383
+Test (9): 5.4908
 ```
